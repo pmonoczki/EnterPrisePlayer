@@ -1,15 +1,19 @@
 package player;
 
+import CD.CD;
 import writer.Writer;
 
 import java.rmi.RemoteException;
 
-enum PlayerMode{
-    CD,
-        Spotify
- }
+
 
 public class Player {
+
+    private CD cd;
+
+    public void addCD(CD cd){
+
+    }
 
     private Writer writer;
 
@@ -19,7 +23,20 @@ public class Player {
         pm = PlayerMode.Spotify;
     }
 
+    public void changeMode(){
+
+        if(this.pm == PlayerMode.CD){
+            this.pm = PlayerMode.Spotify;
+        }
+        else{
+            this.pm = PlayerMode.CD;
+        }
+
+    }
+
     public void stop(){
+
+        this.writer.write("stopped");
 
     }
 
